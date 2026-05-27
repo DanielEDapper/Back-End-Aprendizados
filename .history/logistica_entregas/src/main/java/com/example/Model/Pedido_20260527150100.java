@@ -1,0 +1,53 @@
+package com.example.Model;
+
+import java.sql.Date;
+
+import com.example.Enum.StatusPedido;
+
+public class Pedido 
+{
+    private int idPedido;
+    private int idCliente;
+    private Date dataPedido;
+    private double volumeM3;
+    private double pesoKg;
+    private StatusPedido statusPedido;
+    public int getIdPedido() {
+        return idPedido;
+    }
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
+    public int getIdCliente() {
+        return idCliente;
+    }
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+    public Date getDataPedido() {
+        return dataPedido;
+    }
+    public void setDataPedido(Date dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+    public double getVolumeM3() {
+        return volumeM3;
+    }
+    public void setVolumeM3(double volumeM3) {
+        this.volumeM3 = volumeM3;
+    }
+    public double getPesoKg() {
+        return pesoKg;
+    }
+    public void setPesoKg(double pesoKg) {
+        this.pesoKg = pesoKg;
+    }
+    public StatusPedido getStatusPedido() {
+        return statusPedido;
+    }
+    public void setStatusPedido(StatusPedido statusPedido) {
+        this.statusPedido = statusPedido;
+    }
+    
+    
+}

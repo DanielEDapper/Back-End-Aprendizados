@@ -4,6 +4,7 @@ public class MenuAdmin
 {
     public static void menuAdminInicio()
     {
-        
-    }    
+        System.out.println("1 - Cadastrar Cliente");
+        System.out.println("2 - Cadastrar Motorista");
+    }                                                                                                                                                                                                                                      
 }

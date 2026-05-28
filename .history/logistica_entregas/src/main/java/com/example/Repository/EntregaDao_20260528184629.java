@@ -1,0 +1,13 @@
+package com.example.Repository;
+
+import com.example.Model.Entrega;
+
+public class EntregaDao 
+{
+    public static void cadastrarEntrega(Entrega entrega)
+    {
+        String sql = """
+                INSERT INTO entrega(pedido_id, motorista_id, data_saida, data_entrega, status) VALUES (?, ?, ?, ?)
+                """;
+    }    
+}

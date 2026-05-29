@@ -30,8 +30,7 @@ public class MenuAdmin
             System.out.println("1 - Cadastrar Cliente");
             System.out.println("2 - Cadastrar Motorista");
             System.out.println("3 - Atribuir Pedido a Motorista (Gerar Entrega)");
-            System.out.println("4 - Excluir Cliente");
-            System.out.println("5 - Excluir Motorista");
+            System.out.println("");
             System.out.println("0 - Sair");
             int opcao = Ferramentas.lInteiro();
             
@@ -40,8 +39,6 @@ public class MenuAdmin
                 case 1 -> cadastrarCliente();
                 case 2 -> cadastrarMotorista();
                 case 3 -> gerarEntrega();
-                case 4 -> excluirCliente();
-                case 5 -> excluirMotorista();
                 case 0 -> continuar = false;
             }
         }
@@ -149,45 +146,7 @@ public class MenuAdmin
         catch(SQLException e)
         {
             e.printStackTrace();
-        }   
-    }
-
-    public static void excluirCliente()
-    {
-        System.out.println("=========================");
-        System.out.println("==   EXCLUIR CLIENTE   ==");
-        System.out.println("=========================");
-
-
-        try{
-            List<Cliente> clientes = new ArrayList<>();
-            clientes = clienteService.buscarClientes();
-
-            for(Cliente cliente : clientes)
-            {
-                System.out.println("==========================");
-                System.out.println("==  ID: "+cliente.getIdCliente());
-                System.out.println("==  NOME: "+cliente.getNome());
-                System.out.println("==  CPF/CNPJ: "+cliente.getCpfCnpj());
-                System.out.println("==  ENDEREÇO: "+cliente.getEndereco());
-                System.out.println("==  CIDADE: "+cliente.getCidade());
-                System.out.println("==  ESTADO: "+cliente.getEstado());
-                System.out.println("==========================");
-            }
-
-            System.out.println("Digite o ID do cliente: ");
-            int idCliente = Ferramentas.lInteiro();
-
-            clienteService.excluirCliente(idCliente);
         }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static void excluirMotorista()
-    {
-
+        
     }
 }

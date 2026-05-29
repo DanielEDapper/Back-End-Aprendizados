@@ -71,11 +71,6 @@ public class ClienteDao
                 DELETE FROM cliente WHERE id = ?
                 """;
 
-        try(Connection conn = ConnectionFactory.conectar();
-            PreparedStatement stmt = conn.prepareStatement(sql))
-        {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        }
+        try(Connection conn = )
     }
 }

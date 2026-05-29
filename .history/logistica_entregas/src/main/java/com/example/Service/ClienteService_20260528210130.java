@@ -21,9 +21,5 @@ public class ClienteService
         return clienteDao.listarClientes();
     }
 
-    public static void excluirCliente(int id) throws SQLException
-    {
-        // VALIDAÇÕES NECESSARIAS PARA NÃO SER 
-        clienteDao.excluirCliente(id);
-    } 
+    public static void excluir 
 }

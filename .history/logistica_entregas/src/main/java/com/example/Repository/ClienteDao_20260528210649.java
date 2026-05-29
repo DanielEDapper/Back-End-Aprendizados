@@ -68,14 +68,7 @@ public class ClienteDao
     public static void excluirCliente(int id) throws SQLException
     {
         String sql = """
-                DELETE FROM cliente WHERE id = ?
+                
                 """;
-
-        try(Connection conn = ConnectionFactory.conectar();
-            PreparedStatement stmt = conn.prepareStatement(sql))
-        {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        }
     }
 }

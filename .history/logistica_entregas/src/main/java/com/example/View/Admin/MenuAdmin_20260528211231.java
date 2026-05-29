@@ -163,27 +163,11 @@ public class MenuAdmin
             List<Cliente> clientes = new ArrayList<>();
             clientes = clienteService.buscarClientes();
 
-            for(Cliente cliente : clientes)
-            {
-                System.out.println("==========================");
-                System.out.println("==  ID: "+cliente.getIdCliente());
-                System.out.println("==  NOME: "+cliente.getNome());
-                System.out.println("==  CPF/CNPJ: "+cliente.getCpfCnpj());
-                System.out.println("==  ENDEREÇO: "+cliente.getEndereco());
-                System.out.println("==  CIDADE: "+cliente.getCidade());
-                System.out.println("==  ESTADO: "+cliente.getEstado());
-                System.out.println("==========================");
-            }
 
-            System.out.println("Digite o ID do cliente: ");
-            int idCliente = Ferramentas.lInteiro();
 
-            clienteService.excluirCliente(idCliente);
+            System.out.println("");
         }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-        }
+        catch()
     }
 
     public static void excluirMotorista()

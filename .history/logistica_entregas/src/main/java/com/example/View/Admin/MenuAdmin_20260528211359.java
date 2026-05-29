@@ -178,7 +178,7 @@ public class MenuAdmin
             System.out.println("Digite o ID do cliente: ");
             int idCliente = Ferramentas.lInteiro();
 
-            clienteService.excluirCliente(idCliente);
+            
         }
         catch(SQLException e)
         {

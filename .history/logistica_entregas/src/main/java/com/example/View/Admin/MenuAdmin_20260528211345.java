@@ -175,10 +175,7 @@ public class MenuAdmin
                 System.out.println("==========================");
             }
 
-            System.out.println("Digite o ID do cliente: ");
-            int idCliente = Ferramentas.lInteiro();
-
-            clienteService.excluirCliente(idCliente);
+            System.out.println("Digite o ");
         }
         catch(SQLException e)
         {

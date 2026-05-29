@@ -40,8 +40,6 @@ public class MenuAdmin
                 case 1 -> cadastrarCliente();
                 case 2 -> cadastrarMotorista();
                 case 3 -> gerarEntrega();
-                case 4 -> excluirCliente();
-                case 5 -> excluirMotorista();
                 case 0 -> continuar = false;
             }
         }
@@ -152,42 +150,5 @@ public class MenuAdmin
         }   
     }
 
-    public static void excluirCliente()
-    {
-        System.out.println("=========================");
-        System.out.println("==   EXCLUIR CLIENTE   ==");
-        System.out.println("=========================");
-
-
-        try{
-            List<Cliente> clientes = new ArrayList<>();
-            clientes = clienteService.buscarClientes();
-
-            for(Cliente cliente : clientes)
-            {
-                System.out.println("==========================");
-                System.out.println("==  ID: "+cliente.getIdCliente());
-                System.out.println("==  NOME: "+cliente.getNome());
-                System.out.println("==  CPF/CNPJ: "+cliente.getCpfCnpj());
-                System.out.println("==  ENDEREÇO: "+cliente.getEndereco());
-                System.out.println("==  CIDADE: "+cliente.getCidade());
-                System.out.println("==  ESTADO: "+cliente.getEstado());
-                System.out.println("==========================");
-            }
-
-            System.out.println("Digite o ID do cliente: ");
-            int idCliente = Ferramentas.lInteiro();
-
-            clienteService.excluirCliente(idCliente);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public static void excluirMotorista()
-    {
-
-    }
+    public static void 
 }

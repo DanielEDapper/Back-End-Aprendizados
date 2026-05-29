@@ -73,9 +73,5 @@ public class ClienteDao
 
         try(Connection conn = ConnectionFactory.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql))
-        {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        }
     }
 }

@@ -23,7 +23,7 @@ public class ClienteService
 
     public static void excluirCliente(int id) throws SQLException
     {
-        // VALIDAÇÕES NECESSARIAS PARA NÃO SER 
-        clienteDao.excluirCliente(id);
+        // VALIDAÇÕES NECESSARIAS
+
     } 
 }

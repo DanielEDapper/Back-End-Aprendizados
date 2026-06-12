@@ -1,0 +1,36 @@
+package com.example.Service;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Handler;
+
+import com.example.Model.Cliente;
+import com.example.Repository.ClienteDao;
+
+public class ClienteService 
+{
+    static ClienteDao clienteDao = new ClienteDao();
+    public static String cadastroCliente(Cliente cliente) throws SQLException
+    {
+        ClienteDao.cadastrarCliente(cliente);
+        String mensagem = "";
+        return mensagem;
+    } 
+    
+    public static List<Cliente> buscarClientes() throws SQLException
+    {
+        return clienteDao.listarClientes();
+    }
+
+    public static void excluirCliente(int id) throws SQLException
+    {
+        // VALIDAÇÕES NECESSARIAS PARA NÃO SER 
+        clienteDao.excluirCliente(id);
+    } 
+
+    public static HashMap<String, Double> relatorioMaiorVolume()
+    {
+
+    }
+}

@@ -1,0 +1,128 @@
+package com.example.View.Cliente;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.example.Model.Cliente;
+import com.example.Model.Entrega;
+import com.example.Model.Pedido;
+import com.example.Service.ClienteService;
+import com.example.Service.PedidoService;
+import com.example.Util.Ferramentas;
+
+public class MenuCliente 
+{
+
+    static ClienteService clienteService = new ClienteService();
+    static PedidoService pedidoService = new PedidoService();
+
+    public static void menuClienteInicio()
+    {
+        boolean continuar = true;
+
+        while(continuar)
+        {
+            System.out.println("============================================================");
+            System.out.println("==                   MENU ADMINISTRADOR                   ==");
+            System.out.println("============================================================");
+            System.out.println("==  [1] - Criar Pedido");
+            System.out.println("==  [2] - Cancelar Pedido");
+            System.out.println("==  [0] - Sair");
+            System.out.println("============================================================");
+            System.out.print("== Digite: ");
+            System.out.println("============================================================");
+            int opcao = Ferramentas.lInteiro();
+
+            switch(opcao)
+            {
+                case 1 -> menuCriarPedido();
+                case 2 -> cancelarPedido();
+                case 0 -> continuar = false;
+            }
+        }
+    }
+
+    public static void menuCriarPedido()
+    {
+        System.out.println("============================================================");
+        System.out.println("==                   CADASTRAR PEDIDO                     ==");
+        System.out.println("============================================================");
+
+        try{
+            List<Cliente> clientes = clienteService.buscarClientes();
+
+            for(Cliente cliente : clientes)
+            {
+                System.out.println("============================================================");
+                System.out.println("==  ID: "+cliente.getIdCliente());
+                System.out.println("==  NOME: "+cliente.getNome());
+                System.out.println("==  CPF/CNPJ: "+cliente.getCpfCnpj());
+                System.out.println("==  ENDEREÇO: "+cliente.getEndereco());
+                System.out.println("==  CIDADE: "+cliente.getCidade());
+                System.out.println("==  ESTADO: "+cliente.getEstado());
+                System.out.println("============================================================");
+            }
+
+            System.out.println("==  Digite o ID do cliente: ");
+            int idCliente = Ferramentas.lInteiro();
+            System.out.println("Digite o volume do pedido: ");
+            double volume = Ferramentas.lDouble();
+            System.out.println("Digite o peso do pedido: ");
+            double peso = Ferramentas.lDouble();
+
+            Pedido pedido = new Pedido(idCliente, volume, peso);
+            pedidoService.cadastrarPedido(pedido);
+
+            
+            
+            //TENTATIVA DE GERAR ENTREGA
+
+            
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        Ferramentas.limpaTerminal();
+    }
+
+    public static void cancelarPedido()
+    {
+        System.out.println("============================================================");
+        System.out.println("==                   CANCELAR PEDIDO                      ==");
+        System.out.println("============================================================");
+
+        List<Pedido> pedidos = new ArrayList<>();
+
+        try{
+            pedidos = pedidoService.buscarPedidos();
+
+            for(Pedido pedido : pedidos)
+            {
+                System.out.println("  ");
+                System.out.println("============================================================");
+                System.out.println("==  ID: "+pedido.getIdPedido());
+                System.out.println("==  ID CLIENTE: "+pedido.getIdCliente());
+                System.out.println("==  DATA PEDIDO: "+pedido.getDataPedido());
+                System.out.println("==  VOLUME M3: "+pedido.getVolumeM3());
+                System.out.println("==  PESO KG: "+pedido.getPesoKg());
+                System.out.println("==  STATUS PEDIDO: "+pedido.getStatusPedido());
+                System.out.println("============================================================");
+                System.out.println("  ");
+            }
+
+            System.out.println("==  Digite o id do Pedido: ");
+            int idPedido = Ferramentas.lInteiro();
+
+            pedidoService.cancelarPedido(idPedido);
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+}

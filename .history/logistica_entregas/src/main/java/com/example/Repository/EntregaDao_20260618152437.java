@@ -187,7 +187,7 @@ public class EntregaDao
                 JOIN pedido p ON e.pedido_id = p.id
                 JOIN cliente c ON p.cliente_id = c.id
                 WHERE e.status = 'ATRASADA'
-                GROUP BY c.cidade;
+                GROUP BY c.cidade
                 """;
 
         try(Connection conn = ConnectionFactory.conectar();
